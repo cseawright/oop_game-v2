@@ -23,6 +23,24 @@ class Phrase {
         
     }
     
+    checkLetter(letter){
+        if (this.phrase.includes(letter)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    showMatchedLetter(letter){
+        if(this.checkLetter){
+            let letterElements = document.querySelectorAll(`.${letter}`);
+            for (let i = 0; i < letterElements.length; i++){
+                letterElements[i].className = 'show';
+            }
+        }
+        
+    }
+    
     
 }
 
