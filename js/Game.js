@@ -41,18 +41,13 @@ class Game {
     }
     
     removeLife(){
-        const heart = document.querySelectorAll('.tries img');
-        
-        this.missed += 1;
-        for (let i = 0; i < heart.length; i++){
-            if(heart[i].src.includes('images/liveHeart.png')&& this.missed == i){
-                heart[i].setAttribute('src', 'images/lostHeart.png');
-            }
-            
+        if (game.missed < 4) {
+            document.getElementById('scoreboard').children[0].children[4-game.missed].children[0].src = 'images/lostHeart.png';
         }
-        
-        if (this.missed === 5){
-            this.gameOver();
+        if (game.missed === 5) {
+            game.gameOver();
+        } else {
+            game.missed += 1;
         }
         
     }
