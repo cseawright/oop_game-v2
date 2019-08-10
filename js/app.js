@@ -16,7 +16,7 @@
 //const phrase = new Phrase(randomPhrase.phrase);
 //phrase.addPhraseToDisplay();
 
-const game = new Game();
+let game;
 //
 //const gameRandom = game.getRandomPhrase();
 //console.log(gameRandom);
@@ -28,7 +28,7 @@ const game = new Game();
 const startButton = document.getElementById("btn__reset");
 
 startButton.addEventListener("click", function(){
-    
+    game = new Game();
     game.startGame();
     //game.resetGame();
 });
@@ -37,7 +37,7 @@ let button = document.getElementById('qwerty')
 
 button.addEventListener("click", function(e){
     if (e.target.tagName === 'BUTTON'){
-        game.handleInteraction()
+        game.handleInteraction(e.target);
     }
 })
 
