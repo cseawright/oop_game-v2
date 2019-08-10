@@ -41,13 +41,11 @@ class Game {
     }
     
     removeLife(){
-        if (game.missed < 4) {
-            document.getElementById('scoreboard').children[0].children[4-game.missed].children[0].src = 'images/lostHeart.png';
-        }
-        if (game.missed === 5) {
-            game.gameOver();
-        } else {
-            game.missed += 1;
+        const hearts = document.querySelectorAll('img'); //Removes life from scoreboard if wrong letter is chosen
+        hearts[this.missed].src = 'images/lostHeart.png';
+        this.missed += 1;
+        if (this.missed === 5) {
+            this.gameOver(false)
         }
         
     }
