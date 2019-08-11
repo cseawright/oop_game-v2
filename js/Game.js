@@ -51,18 +51,23 @@ class Game {
     }
     
     gameOver (gameWon){
-        document.getElementById('overlay').style.display = 'block';
-        const startOverlay = document.getElementsByClassName('.start');
-        const gameOverMessage = document.getElementById('game-over-message');
+//        document.getElementById('overlay').style.display = 'block';
+//        const startOverlay = document.querySelector('.start');
+//        const gameOverMessage = document.getElementById('game-over-message');
+//        
+        const overlay = document.getElementById("overlay")
+        const gameOverMessage = document.getElementById("game-over-message")
+        overlay.style.display = "";
         
-        if(gameWon){
-            gameOverMessage.style.display = 'block';
-            gameOverMessage.textContent = 'You Won!';
-            startOverlay.className = 'win';
-        }else{
-            gameOverMessage.textContent = 'You Lose';
-            startOverlay.className = 'lose';
+        if(gameWon) {
+            overlay.className =  "win";
+            gameOverMessage.innerHTML = "You Win!";
         }
+        if(this.missed === 5 ){
+            overlay.className =  "lose";
+            gameOverMessage.innerHTML = "You Lose"
+        }
+        
         
         const phraseSection = document.querySelector('#phrase ul');
         phraseSection.innerHTML = '';
